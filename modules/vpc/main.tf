@@ -2,12 +2,13 @@
 
 resource "aws_vpc" "this" {
   cidr_block           = var.vpc_cidr
-  enable_dns_hostnames = true
+  enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support   = true
 
   tags = {
     Name        = "${var.env}-vpc"
     Environment = var.env
+    Project     = var.project
     ManagedBy   = "Terraform"
   }
 }
@@ -18,6 +19,7 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name        = "${var.env}-igw"
     Environment = var.env
+    Project     = var.project
     ManagedBy   = "Terraform"
   }
 }
@@ -33,6 +35,7 @@ resource "aws_route_table" "public" {
   tags = {
     Name        = "${var.env}-public-rt"
     Environment = var.env
+    Project     = var.project
     ManagedBy   = "Terraform"
   }
 }
