@@ -6,10 +6,22 @@ variable "env" {
   default     = "dev"
 }
 
+variable "project" {
+  type        = string
+  description = "Project name used for cost allocation tags"
+  default     = "infra-as-code"
+}
+
 variable "vpc_cidr" {
   type        = string
   description = "CIDR block for the VPC"
   default     = "10.10.0.0/16"
+}
+
+variable "enable_dns_hostnames" {
+  type        = bool
+  description = "Whether to enable DNS hostnames in the VPC"
+  default     = true
 }
 
 variable "public_cidrs" {

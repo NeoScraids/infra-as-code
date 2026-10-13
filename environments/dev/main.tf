@@ -3,8 +3,10 @@
 module "vpc" {
   source = "../../modules/vpc"
 
-  env      = var.env
-  vpc_cidr = var.vpc_cidr
+  env                  = var.env
+  project              = var.project
+  vpc_cidr             = var.vpc_cidr
+  enable_dns_hostnames = var.enable_dns_hostnames
 }
 
 module "subnet" {
